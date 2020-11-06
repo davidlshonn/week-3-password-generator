@@ -29,6 +29,11 @@ var userWantsLowerCase = confirm('Do you want Lower Case Letters?');
         password += randomUpperCaseIndex;
     }
 
+    if(lowerCaseChar){
+        var randomLowerCaseIndex = lowerCaseChar[Math.floor(Math.random() * lowerCaseChar.length)]
+        password += randomLowerCaseIndex;
+    }
+
 
 
 
