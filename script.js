@@ -5,6 +5,8 @@ function generatePassword() {
   var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lowerCaseChar = "abcdefghijklmnopqrstuvwxyz";
   var specialChar = "@#$%&*+-";
+  var numberOps = "1234567890";
+
 
   //prompts, confirms etc to get the users criteria for the password
   var lengthRequested = parseInt(
@@ -18,9 +20,10 @@ function generatePassword() {
   var userWantsUppCase = confirm("Do you want Upper Case Letters?");
   var userWantsLowerCase = confirm("Do you want Lower Case Letters?");
   var userWantsSpecial = confirm("Do you want Special Characters?");
+  var userWantsNumber = confirm("Do you want Numbers?");
 
   //prompts to generate a password from the variables declared
-  if (!userWantsUppCase && !userWantsLowerCase && !userWantsSpecial) {
+  if (!userWantsUppCase && !userWantsLowerCase && !userWantsSpecial && !userWantsNumber) {
     alert("Select at least one type of character");
   }
 
@@ -46,11 +49,19 @@ function generatePassword() {
   }
 
   if (userWantsSpecial) {
-    var randomSpecialChar =
+    var randomSpecialCharIndex =
       specialChar[Math.floor(Math.random() * specialChar.length)];
-    password += randomSpecialChar;
+    password += randomSpecialCharIndex;
 
     passwordFillerOptions += specialChar;
+  }
+
+  if (userWantsNumber) {
+    var randomNumberIndex =
+      numberOps[Math.floor(Math.random() * numberOps.length)];
+    password += randomNumberIndex;
+
+    passwordFillerOptions += numberOps;
   }
 
   //looping over to make sure the length of the password created is the length requested
