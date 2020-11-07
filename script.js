@@ -7,7 +7,6 @@ function generatePassword() {
   var specialChar = "@#$%&*+-";
   var numberOps = "1234567890";
 
-
   //prompts, confirms etc to get the users criteria for the password
   var lengthRequested = parseInt(
     prompt("How long would you like the password?")
@@ -23,7 +22,12 @@ function generatePassword() {
   var userWantsNumber = confirm("Do you want Numbers?");
 
   //prompts to generate a password from the variables declared
-  if (!userWantsUppCase && !userWantsLowerCase && !userWantsSpecial && !userWantsNumber) {
+  if (
+    !userWantsUppCase &&
+    !userWantsLowerCase &&
+    !userWantsSpecial &&
+    !userWantsNumber
+  ) {
     alert("Select at least one type of character");
   }
 
