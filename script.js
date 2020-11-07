@@ -1,48 +1,71 @@
-
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
- //variables for uppercase,lowercase,special, numbers
- var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
- var lowerCaseChar = "abcdefghijklmnopqrstuvwxyz";
+  //variables for uppercase,lowercase,special, numbers
+  var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var lowerCaseChar = "abcdefghijklmnopqrstuvwxyz";
+  var specialChar = "@#$%&*+-";
 
- //prompts, confirms etc to get the users criteria for the password
-var lengthRequested = parseInt(prompt('How long would you like the password?'));
+  //prompts, confirms etc to get the users criteria for the password
+  var lengthRequested = parseInt(
+    prompt("How long would you like the password?")
+  );
 
-if (lengthRequested < 8 || lengthRequested > 128){
-    alert('Length must be more than 8 but less than 218')
-}
+  if (lengthRequested < 8 || lengthRequested > 128) {
+    alert("Length must be more than 8 but less than 128");
+  }
 
-var userWantsUppCase = confirm('Do you want Upper Case Letters?');
-var userWantsLowerCase = confirm('Do you want Lower Case Letters?');
+  var userWantsUppCase = confirm("Do you want Upper Case Letters?");
+  var userWantsLowerCase = confirm("Do you want Lower Case Letters?");
+  var userWantsSpecial = confirm("Do you want Special Characters?");
 
+  //prompts to generate a password from the variables declared
+  if (!userWantsUppCase && !userWantsLowerCase && !userWantsSpecial) {
+    alert("Select at least one type of character");
+  }
 
- //use those prompts to generate a password from the variables you declared at the top
-    if (!userWantsUppCase && !userWantsLowerCase){
-        alert('Select at least one type of character');
+  var password = "";
+
+  var passwordFillerOptions = "";
+
+  //If statement generating random charactars from each variable
+  if (userWantsUppCase) {
+    var randomUpperCaseIndex =
+      upperCaseChar[Math.floor(Math.random() * upperCaseChar.length)];
+    password += randomUpperCaseIndex;
+
+    passwordFillerOptions += upperCaseChar;
+  }
+
+  if (lowerCaseChar) {
+    var randomLowerCaseIndex =
+      lowerCaseChar[Math.floor(Math.random() * lowerCaseChar.length)];
+    password += randomLowerCaseIndex;
+
+    passwordFillerOptions += lowerCaseChar;
+  }
+
+  if (userWantsSpecial) {
+    var randomSpecialChar =
+      specialChar[Math.floor(Math.random() * specialChar.length)];
+    password += randomSpecialChar;
+
+    passwordFillerOptions += specialChar;
+  }
+
+  //looping over to make sure the length of the password created is the length requested
+  for (var i = 0; i < lengthRequested; i++) {
+    if (password.length < lengthRequested) {
+      var anyCharacter =
+        passwordFillerOptions[
+          Math.floor(Math.random() * passwordFillerOptions.length)
+        ];
+      password += anyCharacter;
     }
+  }
 
-    var password = '';
-
-    if(userWantsUppCase){
-        var randomUpperCaseIndex = upperCaseChar[Math.floor(Math.random() * upperCaseChar.length)];
-        password += randomUpperCaseIndex;
-    }
-
-    if(lowerCaseChar){
-        var randomLowerCaseIndex = lowerCaseChar[Math.floor(Math.random() * lowerCaseChar.length)]
-        password += randomLowerCaseIndex;
-    }
-
-
-
-
-
-
-
-
- //return string password
-return password ;
+  //return string password
+  return password;
 }
 
 function writePassword() {
@@ -51,6 +74,6 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// Add event listener to generate button
+// Event listener to generate button
 
 generateBtn.addEventListener("click", writePassword);

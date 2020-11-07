@@ -12,7 +12,7 @@ body,
 }
 body {
   font-family: sans-serif;
-  background-color: #F9FBFD;
+  background-color: #f9fbfd;
 }
 .wrapper {
   padding-top: 30px;
@@ -40,7 +40,7 @@ header {
   content: " ";
   display: block;
   width: 100%;
-  background: #E7E9EB;
+  background: #e7e9eb;
   height: 2px;
 }
 .card-body {
@@ -53,7 +53,7 @@ header {
   content: " ";
   display: block;
   width: 100%;
-  background: #E7E9EB;
+  background: #e7e9eb;
   height: 2px;
 }
 .card-footer::after {
@@ -78,7 +78,7 @@ header {
 }
 button[disabled] {
   cursor: default;
-  background: #C0C7CF;
+  background: #c0c7cf;
 }
 .float-right {
   float: right;
@@ -98,7 +98,7 @@ button[disabled] {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #C0C7CF;
+  border: 2px dashed #c0c7cf;
   border-radius: 6px;
   resize: none;
   overflow: hidden;
