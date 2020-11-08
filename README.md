@@ -1,3 +1,19 @@
+# week-3-password-generator
+
+The purpose
+
+## Sceen Capture of Live Website
+
+![WebPage ScreenCapture](./Assets/Landing-Page-Capture.jpg "Landing Page Capture")
+
+![WebPage ScreenCapture](./Assets/Password-Produced-Capture.jpg "Password-Produced Capture")
+
+## Link to Live Website
+
+![Link to website](https://davidlshonn.github.io/week-3-password-genarator/. "Password Generator")
+
+
+
 # 03 JavaScript: Password Generator
 
 ## Your Task
